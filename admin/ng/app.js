@@ -50,7 +50,7 @@ angular.module('votersAnalytics', ['ngRoute','ui.bootstrap','firebase'], functio
   })
   .directive('topMenu', function () {
 	  return {
-      templateUrl: '/ng/templates/topmenu.html',
+      templateUrl: './ng/templates/topmenu.html',
       replace: true,
       link: function (scope, elem, attrs) {
         return;
