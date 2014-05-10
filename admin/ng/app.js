@@ -38,9 +38,10 @@ angular.module('votersAnalytics', ['ngRoute','ui.bootstrap','firebase'], functio
   .controller('registerController', function ($scope, $firebase) {
     $scope.school = {"name": "","date":"","amount":""};
     var schoolRef = new Firebase("codeforindia.firebaseio.com/students/");
+    var schools = new Firebase("codeforindia.firebaseio.com/");
     
-    $scope.schools = $firebase(schoolRef);
-    $scope.addSchool = function () {  
+    $scope.schools = $firebase(schools);
+    $scope.saveRegister = function () {  
       schoolRef.push($scope.school); 
       $scope.reset();
       alert("Data added");

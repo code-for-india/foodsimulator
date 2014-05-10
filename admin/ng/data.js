@@ -1,4 +1,4 @@
-function iwontuseyoubutineedyou () {
+function thisisnotbeingused () {
   var n = 2, // number of layers
       m = 5, // number of samples per layer
       stack = d3.layout.stack() ,
@@ -74,8 +74,6 @@ function iwontuseyoubutineedyou () {
     var data =  a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
     return data;
   }
-
-
 }
 
 function initialize() {
@@ -200,9 +198,10 @@ function smallerChart(id, filename) {
     .text("People");
 
     svg.append("path")
-    .datum(data)
-    .attr("class", "line")
-    .attr("d", line);
+    .data(data)
+	.attr("class", "line")
+	.attr("d", line);
+    
   });
 
 }
