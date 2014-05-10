@@ -176,11 +176,19 @@ function smallerChart(id, filename) {
   d3.csv("./data/" + filename, function(data, error) {
     data.forEach(function(d) {
       d.date = parseDate(d.date);
-      d.close = +d.close;
+      d.close = d.close * 1 ;
     });
 
-    x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain(d3.extent(data, function(d) { return d.close; }));
+    x.domain(d3.extent(data, function(d) {
+      if(d) {
+        return d.date; 
+       }
+    }));
+    y.domain(d3.extent(data, function(d) { 
+      if(d) {
+        return d.close;
+      }
+    }));
 
     svg.append("g")
     .attr("class", "x axis")
@@ -198,10 +206,10 @@ function smallerChart(id, filename) {
     .text("People");
 
     svg.append("path")
-    .data(data)
+    .datum(data)
 	.attr("class", "line")
 	.attr("d", line);
-    
+ 
   });
 
 }
