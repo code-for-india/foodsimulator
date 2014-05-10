@@ -24,13 +24,22 @@
       <div class="row">
         <hr>
         <div class="container">
-
-          <div class="row">
-            
-            
-            FORMULARIO
-            
-          </div>
+          <div class="row formulario" data-ng-controller="registerController" >
+            <form role="form" name="register">
+              <div class="form-group">
+                <label for="">School Name</label>
+                <input type="text" class="form-control" data-ng-model='school.name'>
+              </div>
+              <div class="form-group">
+                <label for="">Date</label>
+                <input type="text" class="form-control" data-ng-model='school.date'>
+              </div>
+              <div class="form-group">
+                <label for="">Amount of Students</label>
+                <input type="text" class="form-control" data-ng-model='school.amount'>
+              </div>
+            </form>
+           </div>
         </div>
       </div>        
     </div>  

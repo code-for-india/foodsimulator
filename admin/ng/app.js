@@ -35,6 +35,22 @@ angular.module('votersAnalytics', ['ngRoute','ui.bootstrap','firebase'], functio
           setupChart('mainGraph');
         };
    })
+  .controller('registerController', function ($scope, $firebase) {
+    $scope.school = {"name": "","date":"","amount":""};
+    var schoolRef = new Firebase("codeforindia.firebaseio.com/students/");
+    
+    $scope.schools = $firebase(schoolRef);
+    $scope.addSchool = function () {  
+      schoolRef.push($scope.school); 
+      $scope.reset();
+      alert("Data added");
+    };
+    
+    $scope.reset = function () {
+      $scope.school = {"name": "","date":"","amount":""};
+    };
+
+  })
   .controller('schoolController', function ($scope, $firebase) {
     $scope.newSchool = {"Class": "","Range": "","Route Code": "","Route Name": "","School Name ": "","Slno": "","Type": "","location": "","log": "","lon": ""};
     var schoolRef = new Firebase("codeforindia.firebaseio.com/");
