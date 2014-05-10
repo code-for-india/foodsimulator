@@ -87,7 +87,7 @@ function initialize() {
                                 mapOptions);
 
   //map.data.loadGeoJson('/data/states.json');
-  map.data.loadGeoJson('/data/sample.json');
+  map.data.loadGeoJson('./data/sample.json');
 
   map.data.setStyle({fillColor : 'navy', title : "state"});
 
